@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Resultados de Búsqueda</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<link rel="stylesheet" href="/application.82b772fb4dca3e014b67448668eed100a62c97192dc4155077b17dfd44d21faf.css" integrity="sha256-grdy&#43;03KPgFLZ0SGaO7RAKYslxktxBVQd7F9/UTSH68=" />
+<link rel="stylesheet" href="/application.6053c2440fb32ef2010c84f629a987aa593a9a7ff9a82643ef43d9bbe9096d92.css" integrity="sha256-YFPCRA&#43;zLvIBDIT2KamHqlk6mn/5qCZD70PZu&#43;kJbZI=" />
 
 
 
@@ -19,7 +19,7 @@ Establecer una prioridad muy baja en el mapa del sitio le dirá a los motores de
 Esta implementación utiliza Fusejs, jquery y mark.js
 Configuración inicial La búsqueda depende del tipo de contenido de salida adicional de JSON en config." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/es/search/" /><meta property="article:section" content="search" />
+<meta property="og:url" content="https://example.org/es/search/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2010-06-08T08:06:25+06:00" />
 <meta property="article:modified_time" content="2010-06-08T08:06:25+06:00" />
 
@@ -51,7 +51,7 @@ Configuración inicial La búsqueda depende del tipo de contenido de salida adic
     </script>
   </head>
 
-  <body class="type-search kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+  <body class="type-notes kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
     <div class="container-fluid bg-secondary wrapper">
       
       
@@ -183,7 +183,7 @@ Configuración inicial La búsqueda depende del tipo de contenido de salida adic
         </form>
         <div class="sidebar-tree">
           <ul class="tree" id="tree">
-            <li id="list-heading"><a href="/es/search" data-filter="all">Búsqueda</a></li>
+            <li id="list-heading"><a href="/es/notes" data-filter="all">Notas</a></li>
             <div class="subtree">
                 
 
@@ -197,38 +197,42 @@ Configuración inicial La búsqueda depende del tipo de contenido de salida adic
 
       
       
-<script>
-  document.body.classList.replace('kind-page', 'kind-section');
-</script>
 <section class="content-section" id="content-section">
   <div class="content container-fluid" id="content">
-    <div class="container-fluid post-card-holder" id="post-card-holder">
-      <div id="search-results" style="display: flex; flex-wrap: wrap;">
+    <div class="container-fluid note-card-holder" id="note-card-holder">
+      <p>Este archivo existe únicamente para responder a la URL /search con la plantilla de diseño <code>search</code> relacionada.</p>
+<p>No se muestra ningún contenido aquí, todo el contenido se basa en la plantilla layouts/page/search.html</p>
+<p>Establecer una prioridad muy baja en el mapa del sitio le dirá a los motores de búsqueda que éste no es un contenido importante.</p>
+<p>Esta implementación utiliza Fusejs, jquery y mark.js</p>
+<h2 id="configuración-inicial">Configuración inicial</h2>
+<p>La búsqueda depende del tipo de contenido de salida adicional de JSON en config.toml</p>
+<p>```
+[outputs]
+home = [&ldquo;HTML&rdquo;, &ldquo;JSON&rdquo;]
+```</p>
+<h2 id="búsqueda-de-archivos-adicionales">Búsqueda de archivos adicionales</h2>
+<p>Para buscar campos adicionales definidos en el front matter, debes añadirlo en 2 lugares.</p>
+<h3 id="editar-layouts_defaultindexjson">Editar layouts/_default/index.JSON</h3>
+<p>Esto expone los valores en /index.json: por ejemplo, para agregar <code>categories</code>
+```
+&hellip;
+&ldquo;contents&rdquo;:{{ .Content | plainify | jsonify }}
+{{ if .Params.tags }},
+&ldquo;tags&rdquo;:{{ .Params.tags | jsonify }}{{end}},
+&ldquo;categories&rdquo; : {{ .Params.categories | jsonify }},
+&hellip;
+```</p>
+<h3 id="editar-las-opciones-de-fusejs-para-buscar">Editar las opciones de fuse.js para buscar</h3>
+<p><code>assets/scripts/pages/search.js</code>
+```
+keys: [
+&ldquo;title&rdquo;,
+&ldquo;contents&rdquo;,
+&ldquo;tags&rdquo;,
+&ldquo;categories&rdquo;
+]
+```</p>
 
-        <script id="search-result-template" type="text/x-js-template">
-          <div class="post-card">
-              <div class="card">
-                <div class="card-head">
-                  <a href="${link}" class="post-card-link">
-                  <img class="card-img-top" src="${hero}" alt="Card Heading Image">
-                  </a>
-                </div>
-                <div class="card-body">
-                  <a href="${link}" class="post-card-link">
-                    <h5 class="card-title">${title}</h5>
-                    <p class="card-text post-summary">${summary}</p>
-                  </a>
-                  
-                </div>
-                <div class="card-footer">
-                  <span class="float-left">${date}</span>
-                  <a href="${link}" class="float-right btn btn-outline-info btn-sm">Read</a>
-                </div>
-              </div>
-          </div>
-        </script>
-
-      </div>
     </div>
   </div>
 </section>
@@ -303,7 +307,7 @@ Configuración inicial La búsqueda depende del tipo de contenido de salida adic
               <form method='post' action='https://blogtrottr.com'>
               <div class="form-group">
               <input type='email' class="form-control" name='btr_email' placeholder="Ingrese email"/><br />
-              <input type='hidden' name='btr_url' value='http://localhost:1313/es//index.xml' />
+              <input type='hidden' name='btr_url' value='https://example.org/es//index.xml' />
               <input type='hidden' name='schedule_type' value='1' />
               <small id="emailHelp" class="form-text text-muted">Al ingresar su dirección de correo electrónico, acepta recibir el boletín de este sitio web.</small>
               <button type="submit" class="btn btn-info"> Enviar </button>
@@ -341,7 +345,7 @@ Configuración inicial La búsqueda depende del tipo de contenido de salida adic
   </footer>
 
 
-    <script src="/application.8656ed83e75e2c3d562d515ccbefa03f6363e32de33bd6af2f4c1f8c0b4bd47c.js" integrity="sha256-hlbtg&#43;deLD1WLVFcy&#43;&#43;gP2Nj4y3jO9avL0wfjAtL1Hw=" defer></script>
+    <script src="/application.9615740b88adfdc2267463244ceaa474e1a41bccdc4195767c73a927644c60c9.js" integrity="sha256-lhV0C4it/cImdGMkTOqkdOGkG8zcQZV2fHOpJ2RMYMk=" defer></script>
 
 
     
