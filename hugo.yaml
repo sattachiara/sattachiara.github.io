@@ -1,5 +1,5 @@
 baseURL: https://sattachiara.github.io
-languageCode: en-us
+languageCode: en
 title: My New Hugo Site
 
 module:
