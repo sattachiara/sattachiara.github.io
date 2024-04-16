@@ -13,7 +13,7 @@ designation: Marketing & Communication specialist
 
 # your resume. this file path should be relative to you "static" directory
 # Dreprecated. Use resourceLinks instead.
-resume: "https://drive.google.com/file/d/1wf4JeZCwPxW9BCU2J2Q8am96xjei_XGa/view?usp=sharing"
+resume: "https://drive.google.com/file/d/11ZKyWp7zAec8vNFDvDF_8H3-Kc9wTIlj/view?usp=sharing"
 
 # a summary about you
 summary: 'I am a Marketing & Communication specialist well-versed in building relationships and managing marketing and communication projects. Currently, I am working in partnership with HP Inc. on an amazing executive programme that brings together senior government officials from all over the world to develop new skills, strategies and techniques to transform their national educational systems through the power of EdTech. I lead the comms and marketing activities of the project and am incredibly privileged to work alongside a fantastic team of experts.'
@@ -27,8 +27,7 @@ socialLinks:
 
 - name: Github
   icon: "fab fa-github"
-  url: "https://www.github.com/sattachiara.github.io
-"
+  url: "https://www.github.com/sattachiara.github.io"
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
@@ -66,7 +65,7 @@ badges:
   color: pink
 
 - type: soft-skill-indicator
-  name: Languages, Culture and Communication
+  name: Digital Marketing & Comms
   percentage: 100
   color: yellow
 
@@ -78,17 +77,32 @@ badges:
 - type: soft-skill-indicator
   name: Responsible
   percentage: 100
-  color: blue
+  color: "#FFEB3B"
 
 - type: soft-skill-indicator
   name: Team Work
   percentage: 100
-  color: orange
+  color: "#E91E63"
 
 - type: soft-skill-indicator
   name: Collaborative
   percentage: 100
-  color: Orange
+  color: "#2979FF"
+
+- type: soft-skill-indicator
+  name: Planning
+  percentage: 100
+  color: "#6200EA"
+
+- type: soft-skill-indicator
+  name: Decision-making
+  percentage: 100
+  color: "#FFEBEE"
+
+- type: soft-skill-indicator
+  name: Problem-solving
+  percentage: 100
+  color: white
 
 # type: certification
 # name: Bibuba
